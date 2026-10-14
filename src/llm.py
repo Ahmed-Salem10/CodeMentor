@@ -37,15 +37,3 @@ def chat(messages: list[dict], temperature: float = 0.2) -> str:
         raise RuntimeError("The model returned an empty response.")
 
     return content.strip()
-
-
-def generate_response(
-    prompt: str,
-    system_prompt: str = "You are a helpful coding mentor.",
-) -> str:
-    messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": prompt},
-    ]
-
-    return chat(messages)

@@ -60,7 +60,7 @@ The student may write in Arabic or English; understand both.
     
     decision = router.invoke(prompt)
 
-    return {"next_agent": decision.next_agent}
+    return {"next_agent": [decision.next_agent]}
 
 AGENTS=["tutor","debugger","reviewer","evaluator"]
 
@@ -69,4 +69,4 @@ def route_next_agent(state:State):
     if not agents:
         return "final"
 
-    return{Send(agent,state) for agent in agents}
+    return[Send(agent,state) for agent in agents]
